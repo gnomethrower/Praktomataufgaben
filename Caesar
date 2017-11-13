@@ -7,24 +7,27 @@ public class Caesar {
 		
 		Scanner sc = new Scanner (System.in); //Scanner initialisieren
 		
-		String s2 = sc.next(); //1. Argument muss im Wertebereich der Strings sein. 
+//		String s2 = sc.next(); //1. Argument muss im Wertebereich der Strings sein. 
 		String s1 = sc.next(); // Beide String Deklarationen helfen den chars Werte zuzuweisen, da man anders nicht an die Werte kommt.
 		
-		char k =  s2.charAt(0); // hiermit kann man den Character der 0-ten Stelle abrufen.
+		int k = sc.nextInt();
+		
+//		char k =  s2.charAt(0); // hiermit kann man den Character der 0-ten Stelle abrufen.
 		int valuek = k; // hier wird eine Weitere Variable kInt mit dem Integer Wert des char 'k' beladen.
 		
 		char b = s1.charAt(0); // siehe beide Kommentare darüber.
-		int valueb = b;
+		int valueb = b - 65;
 		
 //b = (char) ((char) b+k);
-//b = (char) (b+k);
 
-int cypher = ((valueb + valuek)%26);
-
+b = (char) (b+(k%26));
 
 System.out.println(k + " " + valuek);
 System.out.println(b + " " + valueb);
-System.out.println(cypher);
+
+
+
+System.out.println(b+65);
 
 
 	}
