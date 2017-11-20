@@ -10,8 +10,6 @@ int stunden = 0;
 int minuten = 0;
 int tsum= 0;
 Scanner sc = new Scanner (System.in); // Den Scanner definieren
-System.out.println("Geben Sie folgendes ein: Jahreszahl; Monatszahl; Tageszahl; Stundenzahl; Minutenzahl.");
-
 jahr = sc.nextInt(); // Definition und Einspeisung der einzelnen Variablen
 int jahrmin = jahr * 365 * 24 * 60;
 monat = sc.nextInt();
