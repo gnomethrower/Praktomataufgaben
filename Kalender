@@ -8,8 +8,6 @@ int monat = 0;
 int tage = 0;
 int stunden = 0;
 int minuten = 0;
-int monattage = 31;
-boolean monatgerade = false;
 int tsum= 0;
 Scanner sc = new Scanner (System.in); // Den Scanner definieren
 System.out.println("Geben Sie folgendes ein: Jahreszahl; Monatszahl; Tageszahl; Stundenzahl; Minutenzahl.");
@@ -18,26 +16,21 @@ jahr = sc.nextInt(); // Definition und Einspeisung der einzelnen Variablen
 int jahrmin = jahr * 365 * 24 * 60;
 monat = sc.nextInt();
 
-for (; monat > 0; -- monat) { // monat wird jede iteration 1 runtergesetzt. 
+for (; monat > 1; -- monat) { // monat wird jede iteration 1 runtergesetzt. 
 		if (monat == 2) { // bei jedem monat wird darauf dann der monats-tageswert auf die tsum(tagessumme) drauf addiert.
-		monattage = 28;
 		tsum += 28;
 			} else { if ((monat <= 7) & (monat%2 == 0)) {
-				monattage = 30;
 				tsum+=30;
 				} else { if ((monat > 7) & (monat%2 == 1)) {
-				monattage = 30;
 				tsum += 30;
 				} else { 
-					monattage = 31;
 					tsum += 31;
 
 				}
 			}
 		}	
 	}
-
-int monatmin = tsum * 24 * 60; // berechnung der Minuten die in der Summe von Tagen der Minuten sind.
+int monatmin = tsum * 24 * 60; // Berechnung der Minuten die in der Summe von Tagen der Minuten sind.
 tage = sc.nextInt();
 int tagemin = tage * 24 * 60;
 stunden = sc.nextInt();
@@ -45,23 +38,69 @@ int stundenmin = stunden * 60;
 minuten = sc.nextInt();
 
 int minsum = jahrmin + monatmin + tagemin + stundenmin + minuten; // Aufrechnung in Minuten.
-
-System.out.println("Geben Sie nun eine Minutenzahl an, die zu der Zeitangabe hinzuaddiert werden soll. \n");
-
-
 int plusminuten = sc.nextInt(); //Definition und Einspeisung der Additionsvariablen.
-System.out.println("Das Datum um " + plusminuten + " Minuten addiert = " + minsum + " Minuten");
 
+System.out.println(minsum);
+minsum += plusminuten; // Die Minuten mit der Summe zur großen Minutensumme addieren.
+System.out.println(minsum);
 //Neues Datum
 int neuJahr = minsum/(365*24*60);
 minsum %= (365*24*60);
-int neuMonate = minsum/(365*24*60);
-//todo WHAT THE FUCK DO I DO?
+int neuMonate = 0;
 int neuTage = minsum /(24*60);
 minsum %= (24*60);
+if (neuTage < 32) {
+	neuMonate = 1; 
+	} else {
+		if (neuTage < 60){
+			neuMonate = 2;
+			neuTage -= 31;
+		} else { if (neuTage < 91) {
+			neuMonate = 3;
+			neuTage -= 59;
+		} else { if (neuTage < 121) {
+			neuMonate = 4;
+			neuTage -= 90;
+		} else { if (neuTage < 152){
+			neuMonate = 5;
+			neuTage -= 120;
+		} else { if (neuTage < 182) {
+			neuMonate = 6;
+			neuTage -= 151;
+		} else { if (neuTage < 213) {
+			neuMonate = 7;
+			neuTage -= 181;
+		} if (neuTage < 244){
+			neuMonate = 8;
+			neuTage -= 212;
+		} else { if (neuTage < 274) {
+			neuMonate = 9;
+			neuTage -= 243;
+		} else { if (neuTage < 305) {
+			neuMonate = 10;
+			neuTage -= 273;
+		} if (neuTage < 335){
+			neuMonate = 11;
+			neuTage -= 304;
+		} else { if (neuTage < 366) {
+			neuMonate = 12;
+			neuTage -= 334;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 int neuStunden = minsum/60;
 minsum %= 60;
 int neuMinuten = minsum;
+
+
+System.out.println(neuJahr + " " + neuMonate +" "+ neuTage +" "+ neuStunden +" "+ neuMinuten);
 
 		}
 	}
