@@ -1,0 +1,67 @@
+import java.util.Scanner;
+public class DatumErweiterung {
+
+	public static void main(String[] args) {
+
+int jahr = 0;//Variablen initialisiert
+int monat = 0;
+int tage = 0;
+int stunden = 0;
+int minuten = 0;
+int monattage = 31;
+boolean monatgerade = false;
+int tsum= 0;
+Scanner sc = new Scanner (System.in); // Den Scanner definieren
+System.out.println("Geben Sie folgendes ein: Jahreszahl; Monatszahl; Tageszahl; Stundenzahl; Minutenzahl.");
+
+jahr = sc.nextInt(); // Definition und Einspeisung der einzelnen Variablen
+int jahrmin = jahr * 365 * 24 * 60;
+monat = sc.nextInt();
+
+for (; monat > 0; -- monat) { // monat wird jede iteration 1 runtergesetzt. 
+		if (monat == 2) { // bei jedem monat wird darauf dann der monats-tageswert auf die tsum(tagessumme) drauf addiert.
+		monattage = 28;
+		tsum += 28;
+			} else { if ((monat <= 7) & (monat%2 == 0)) {
+				monattage = 30;
+				tsum+=30;
+				} else { if ((monat > 7) & (monat%2 == 1)) {
+				monattage = 30;
+				tsum += 30;
+				} else { 
+					monattage = 31;
+					tsum += 31;
+
+				}
+			}
+		}	
+	}
+
+int monatmin = tsum * 24 * 60; // berechnung der Minuten die in der Summe von Tagen der Minuten sind.
+tage = sc.nextInt();
+int tagemin = tage * 24 * 60;
+stunden = sc.nextInt();
+int stundenmin = stunden * 60;
+minuten = sc.nextInt();
+
+int minsum = jahrmin + monatmin + tagemin + stundenmin + minuten; // Aufrechnung in Minuten.
+
+System.out.println("Geben Sie nun eine Minutenzahl an, die zu der Zeitangabe hinzuaddiert werden soll. \n");
+
+
+int plusminuten = sc.nextInt(); //Definition und Einspeisung der Additionsvariablen.
+System.out.println("Das Datum um " + plusminuten + " Minuten addiert = " + minsum + " Minuten");
+
+//Neues Datum
+int neuJahr = minsum/(365*24*60);
+minsum %= (365*24*60);
+int neuMonate = minsum/(365*24*60);
+//todo WHAT THE FUCK DO I DO?
+int neuTage = minsum /(24*60);
+minsum %= (24*60);
+int neuStunden = minsum/60;
+minsum %= 60;
+int neuMinuten = minsum;
+
+		}
+	}
