@@ -51,50 +51,41 @@ int neuTage = minsum /(24*60);
 minsum %= (24*60);
 if (neuTage < 32) {
 	neuMonate = 1; 
-	} else {
-		if (neuTage < 60){
+		} else if (neuTage < 60){
 			neuMonate = 2;
 			neuTage -= 31;
-		} else { if (neuTage < 91) {
+		} else  if (neuTage < 91) {
 			neuMonate = 3;
 			neuTage -= 59;
-		} else { if (neuTage < 121) {
+		} else  if (neuTage < 121) {
 			neuMonate = 4;
 			neuTage -= 90;
-		} else { if (neuTage < 152){
+		} else  if (neuTage < 152){
 			neuMonate = 5;
 			neuTage -= 120;
-		} else { if (neuTage < 182) {
+		} else  if (neuTage < 182) {
 			neuMonate = 6;
 			neuTage -= 151;
-		} else { if (neuTage < 213) {
+		} else  if (neuTage < 213) {
 			neuMonate = 7;
 			neuTage -= 181;
-		} if (neuTage < 244){
+		} else  if (neuTage < 244){
 			neuMonate = 8;
 			neuTage -= 212;
-		} else { if (neuTage < 274) {
+		} else  if (neuTage < 274) {
 			neuMonate = 9;
 			neuTage -= 243;
-		} else { if (neuTage < 305) {
+		} else  if (neuTage < 305) {
 			neuMonate = 10;
 			neuTage -= 273;
-		} if (neuTage < 335){
+		} else  if (neuTage < 335){
 			neuMonate = 11;
 			neuTage -= 304;
-		} else { if (neuTage < 366) {
+		} else  if (neuTage < 366) {
 			neuMonate = 12;
 			neuTage -= 334;
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
 		}
-	}
+
 int neuStunden = minsum/60;
 minsum %= 60;
 int neuMinuten = minsum;
