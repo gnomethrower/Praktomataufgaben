@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class RadarMessung {
+
+    public static void main(String[] args) {
+	// TODO Auto-generated method stub
+
+	Scanner sc = new Scanner(System.in);
+	
+	while (sc.hasNextDouble()) {
+	    int i = 0;
+	    double speedVorAuto = 0;
+	    double s1 = sc.nextDouble();
+	    double s2 = sc.nextDouble();
+	    double speed = ((10/(s2-s1))*3.6);
+		    if (s1 == -1) {
+			break;
+		    } else if (s1 == 0 | s2 == 0) {
+			continue;
+		    }
+		    if (i > 0) {
+			System.out.println(speed);
+			System.out.println((speedVorAuto * (s2 - s1))); //Distance
+		    } else {
+		    System.out.println(speed);
+		    }
+	i++;
+	System.out.println(x);
+	speedVorAuto = ((10/(s2-s1)*3.6)); //Speichern für nächste Iteration
+//System.out.println(i);
+	    }
+	sc.close();
+	}
+}
